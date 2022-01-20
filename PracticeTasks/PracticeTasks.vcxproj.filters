@@ -21,9 +21,15 @@
     <ClCompile Include="Combos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InvertString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Combos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InvertString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

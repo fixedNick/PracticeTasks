@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Combos.cpp" />
+    <ClCompile Include="InvertString.cpp" />
     <ClCompile Include="PracticeTasks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Combos.h" />
+    <ClInclude Include="InvertString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
