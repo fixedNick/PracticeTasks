@@ -1,17 +1,44 @@
 #include "InvertString.h"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
 
 using namespace std;
 
 void InvertString::Init()
 {
-	string entered_string = "", inverted_string = "";
-	cout << "Enter string: ";
-	cin >> entered_string; ///! Если ввести строку с пробелом, то обработает часть до пробела.
+	vector<string> inverted_lines;
+	
+	string filepath_load = "", filepath_save = "InvertedStringsResult.txt";
 
-	for (int i = entered_string.length() - 1; i >= 0; i--)
-		inverted_string += entered_string[i];
+	cout << "Etner filename to invert data: ";
+	cin >> filepath_load;
 
-	cout << "Инвертированная строка: " + inverted_string << endl;
+	ifstream in(filepath_load, ios::binary | ios::in);
+	if (in.is_open() == false)
+	{
+		cout << "-- Error: bad filename" << endl;
+		return;
+	}
+
+	while (in.eof() == false)
+	{
+		string str_to_invert = "";
+		string inverted_string = "";
+		getline(in, str_to_invert);
+
+		for (int i = str_to_invert.length() - 1; i >= 0; i--)
+			inverted_string += str_to_invert[i];
+		inverted_lines.push_back(inverted_string);
+	}
+	in.close();
+
+	
+	ofstream out(filepath_save); // Переписать на итераторы для корректной записи в файл (Обработать \r последовательности для корректного перехода на новую строку)
+	for (auto line : inverted_lines) {
+		out << line << "\n";
+	}
+
+	out.close();
 }
